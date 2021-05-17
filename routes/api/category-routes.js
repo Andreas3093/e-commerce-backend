@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(req.body,{
-    where:req.params.id
+    where: {id: req.params.id}
   }).then(category=>{
     if(!category){
       res.status(404).json({message:"Cannot update category with this id"});
